@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Farmingo Mangoes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="container">
+    <h2>🥭 Farmingo</h2>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Fresh Alphonso Mangoes</h1>
+    <p>Premium mangoes delivered from Ratnagiri farms</p>
+    <a href="#order" class="btn">Order Now</a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+  <div class="container">
+    <h2>Select Mangoes</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Alphonso</h3>
+        <p>₹1200 / dozen</p>
+        <input type="number" id="alphonso" value="0" min="0">
+      </div>
+
+      <div class="card">
+        <h3>Kesar</h3>
+        <p>₹900 / dozen</p>
+        <input type="number" id="kesar" value="0" min="0">
+      </div>
+
+      <div class="card">
+        <h3>Badami</h3>
+        <p>₹700 / dozen</p>
+        <input type="number" id="badami" value="0" min="0">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order" class="order">
+  <div class="container">
+    <h2>Place Your Order</h2>
+
+    <div class="form">
+      <input type="text" id="name" placeholder="Full Name">
+      <input type="tel" id="phone" placeholder="Phone Number">
+      <textarea id="address" placeholder="Delivery Address"></textarea>
+    </div>
+
+    <h3 id="total">Total: ₹0</h3>
+
+    <button id="orderBtn">Place Order</button>
+  </div>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h2>✅ Order Ready</h2>
+    <p>Click below to send order on WhatsApp</p>
+    <button onclick="sendToWhatsApp()">Continue</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Farmingo Mangoes</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

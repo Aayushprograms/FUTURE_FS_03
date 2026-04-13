@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1 style="text-align:center;">📦 Orders Dashboard</h1>
+
+<div id="orders"></div>
+
+<script>
+function loadOrders() {
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  let container = document.getElementById("orders");
+
+  container.innerHTML = "";
+
+  orders.forEach(order => {
+    let div = document.createElement("div");
+    div.className = "admin-card";
+
+    div.innerHTML = `
+      <h3>Order ID: ${order.id}</h3>
+      <p>Name: ${order.name}</p>
+      <p>Phone: ${order.phone}</p>
+      <p>Status: ${order.status}</p>
+
+      <select onchange="updateStatus(${order.id}, this.value)">
+        <option ${order.status==="Pending"?"selected":""}>Pending</option>
+        <option ${order.status==="In Transit"?"selected":""}>In Transit</option>
+        <option ${order.status==="Delivered"?"selected":""}>Delivered</option>
+      </select>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+function updateStatus(id, status) {
+  let orders = JSON.parse(localStorage.getItem("orders"));
+  orders = orders.map(o => {
+    if (o.id === id) o.status = status;
+    return o;
+  });
+
+  localStorage.setItem("orders", JSON.stringify(orders));
+  loadOrders();
+}
+
+loadOrders();
+</script>
+
+</body>
+</html>
